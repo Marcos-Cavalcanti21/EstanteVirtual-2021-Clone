@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:ital,wght@1,600&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"/>
+  <link rel="stylesheet" href="./CSS/stylus.css">
+  <link rel="shortcut icon" href="./IMG/icon.jpg" type="image/x-icon">
+  <title>Estante Virtual</title>
+</head>
+
+<body>
+  <header class="head">
+    <div id="login"><img src="./IMG/userImg.png">login</div>
+    <img class="estan00" src="./IMG/estan00.png">
+    <div class="text00"> <i>Lembre-se de sempre atualizar seus livros.</i></div>
+    
+
+    <ul>
+      <li><a href="#" onclick="home()">Home</a></li>
+      <li><a href="#" onclick="Vender()">Vender Livro</a></li>
+      <li class="drop">
+        <a href="javascript:void(0)" class="dropbt">Clientes</a>
+        <div class="drop-conten">
+          <a href="#" onclick="addClient()">Adicionar de Cliente</a>
+          <a href="#" onclick="showClients()">Lista de Cadastrados</a>
+          <a href="#" onclick="showSales()">Vendas</a>
+        </div>
+      </li>
+      <li class="drop">
+        <a href="javascript:void(0)" class="dropbt">Funcionarios</a>
+        <div class="drop-conten">
+          <a href="#" onclick="addFunc()">Adcionar de Funcionario</a>
+          <a href="#" onclick="showFunc()">Lista de Funcionarios</a>
+          <a href="#" onclick="salesOnFunc()">Vendas</a>
+        </div>
+      </li>
+      <li class="drop">
+        <a href="javascript:void(0)" class="dropbt">Livros</a>
+        <div class="drop-conten">
+          <a href="#" onclick="addBook()">Novo Livro</a>
+          <a href="#" onclick="stockBooks()">Stock de Livros</a>
+          <a href="#" onclick="sold()">Livros Vendidos</a>
+        </div>
+      </li>
+    </ul>
+
+  </header>
+  <section class="principal">
+
+    <a  onclick="anteImg()"><div class="organiza seta"><img src="./IMG/setaEsquerda.png" width="25px"></div></a>
+    <div class="organiza" id="slider">
+      <img class="img00 selected" src="./IMG/img00.png">
+      <img class="img01" src="./IMG/img01.png">
+      <img class="img02" src="./IMG/img02.png">
+      <img class="img03" src="./IMG/img03.png">
+    </div>
+    <a style="float: right;" onclick="proxImg()"><div class="organiza seta"><img src="./IMG/setaDireita.png" width="25px"></div></a>
+
+  </section>
+
+  <section id="Cliente">
+    <legend>Cadastro Cliente</legend>
+    <hr />
+    <form name='client'>
+      <div class="form-group row">
+        <label for="nomeCliente" class="col-2 col-form-label">Nome</label> 
+        <div class="col-10">
+          <input id="nomeCliente" name="nomeCliente" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="telefoneClie" class="col-2 col-form-label">Telefone</label> 
+        <div class="col-10">
+          <input id="telefoneClie" name="telefoneClie" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="emailCliente" class="col-2 col-form-label">E-Mail</label> 
+        <div class="col-10">
+          <input id="emailCliente" name="emailCliente" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="cpfCliente" class="col-2 col-form-label">CPF</label> 
+        <div class="col-10">
+          <input id="cpfCliente" name="cpfCliente" type="text" class="form-control">
+        </div>
+      </div>
+      
+    </form>
+    <div class="form-group row">
+      <div class="offset-2 col-10">
+        <button name="submit" type="submit" onclick="cadClient()" class="btn btn-primary">Cadastrar</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="Funcionario">
+    <legend>Cadastro de Funcionarios</legend>
+       <hr />
+       
+
+    <form name='func'>
+      <div class="form-group row">
+        <label for="nomeFunc" class="col-2 col-form-label">Nome</label> 
+        <div class="col-10">
+          <input id="nomeFunc" name="nomeFunc" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="telefoneFunc" class="col-2 col-form-label">Telefone</label> 
+        <div class="col-10">
+          <input id="telefoneFunc" name="telefoneFunc" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="emailFunc" class="col-2 col-form-label">E-Mail</label> 
+        <div class="col-10">
+          <input id="emailFunc" name="emailFunc" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="cpfFunc" class="col-2 col-form-label">CPF</label> 
+        <div class="col-10">
+          <input id="cpfFunc" name="cpfFunc" type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="endFunc" class="col-2 col-form-label">Endereço</label> 
+        <div class="col-10">
+          <input id="endFunc" name="endFunc" type="text" class="form-control">
+          
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="filiaFunc" class="col-2 col-form-label">Filiação</label> 
+        <div class="col-10">
+          <input id="filiaFunc" name="filiaFunc" type="text" class="form-control">
+        </div>
+      </div>
+    </form>
+
+    <div class="form-group row">
+      <div class="offset-2 col-10">
+        <button name="submit" onclick="cadFunc()" class="btn btn-primary">Cadastrar</button>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="Livros">
+
+    <legend>Cadastro de Livros</legend>
+    <hr />
+
+    <form name="livros">
+      <div class="form-group row">
+        <label for="tituloLivro" class="col-2 col-form-label">Titulo</label> 
+        <div class="col-10">
+          <input id="tituloLivro" name="tituloLivro" type="text" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group row Aut">
+        <label class="col-md-2 control-label" for="autoLivro">Autor 1º</label>
+        <div class="col-md-8">
+            <input name="autoLivro" type="text"class="form-control">
+        </div>
+        <div class="col-md-2">
+          <span class="material-icons red" onclick="removeAutor()">
+            remove_circle
+               </span>
+          <span class="material-icons green" onclick="addAutor()">
+            control_point
+        </span>
+          </div>
+          </div>
+          <div id="addAutor"></div>
+
+
+     <div class="form-group row Gen">
+        <label class="col-md-2 control-label" for="generoLivro">Gene 1º</label>
+        <div class="col-md-8">
+            <input name="generoLivro" type="text"class="form-control">
+        </div>
+        <div class="col-md-2">
+          <span class="material-icons red" onclick="removeGenero()">
+            remove_circle
+               </span>
+          <span class="material-icons green" onclick="addGenero()">
+            control_point
+        </span>
+        
+            
+          </div>
+          </div>
+          <div id="addGenero"></div>
+
+
+
+      <div class="form-group row">
+        <label for="capaLivro" class="col-2 col-form-label">Capa</label> 
+        <div class="col-10">
+          <input id="capaLivro" name="capaLivro" placeholder="Use somente 'url' de imagens." type="text" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="precoLivro" class="col-2 col-form-label">Preço</label> 
+        <div class="col-3">
+          <input id="precoLivro" name="precoLivro" type="number" class="form-control">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="classLivro" class="col-2 col-form-label">Classificação</label> 
+        <div class="col-3">
+          <input id="classLivro" name="classLivro" type="text" class="form-control">
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label for="Stock" class="col-2 col-form-label">Estoque</label> 
+        <div class="col-3">
+          <input id="Stock" name="Stock" type="number" class="form-control">
+        </div>
+      </div> 
+      
+    </form>
+
+    <div class="form-group row">
+      <div class="offset-2 col-10">
+        <button name="submit" type="submit" onclick="cadBook()" class="btn btn-primary">Cadastrar</button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section id="listClient">
+    
+  </section>
+
+
+  <section id="listFunc">
+
+  </section>
+
+  <section id="listBooks">
+      
+      
+  </section>
+
+  <section id="finalizaCompra">
+
+    <legend>Finalizar Venda</legend>
+    <hr />
+    <form name='finalizaCompra'>
+      <div class="form-group row">
+        <label for="venderClient" class="col-2 col-form-label">Cliente</label> 
+        <div class="col-10">
+          <input id="venderClient" onchange="validaClient()" name="venderClient" type="text" class="form-control">
+        </div>
+      </div>
+      <div id="validaCliente"></div>
+
+      <div class="form-group row">
+        <label for="venderFunc" class="col-2 col-form-label">Funcionario</label> 
+        <div class="col-10">
+          <input id="venderFunc" name="venderFunc" type="text" onchange="validaFunc()" class="form-control">
+        </div>
+      </div>
+      <div id="validaFunc"></div>
+
+      <div class="form-group row">
+        <label for="venderLivro" class="col-2 col-form-label">Livro</label> 
+        <div class="col-10">
+          <input id="venderLivro" name="venderLivro" onchange="validaLivro()" type="text" class="form-control">
+        </div>
+      </div> 
+      <div id="validaLivro"></div>
+      
+    </form>
+
+    <div class="form-group row">
+      <div class="offset-2 col-10">
+        <button name="submit" type="submit" onclick="finalizarVenda()" class="btn btn-primary">Vender</button>
+      </div>
+    </div>
+
+  </section>
+
+  
+  <div style="background-color: aquamarine; width: 1190px; height: 20px; position: fixed; text-align: center; bottom: 0;">Marcos Cavalcanti &copy;&reg;</div>
+</body>
+
+<script src="./JS/main.js"></script>
+
+</html>
