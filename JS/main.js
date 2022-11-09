@@ -151,11 +151,11 @@ class Livros {
         let generos = "";
 
         for(let i = 0; i < this.autor.length; i++){
-            autores += this.autor[i] + ", "
+            //autores += this.autor[i] + ", "
         }
 
         for(let i = 0; i < this.genero.length; i++){
-            generos += this.genero[i] + ", "
+            //generos += this.genero[i] + ", "
         }
             let impressao = 'Classificação: ' + this.classificacao + '<br />' +
                             'Genero: ' + generos  + '<br />' +
@@ -216,8 +216,8 @@ var EStock = [];
 //############# FUNCTIONS ON FORMS ##########//
 
 function home(){
-    Esconder()
-    stockBooks()
+    Esconder();
+    stockBooks();
     document.getElementsByClassName('principal')[0].style.display = 'block';
     
 }
@@ -225,7 +225,7 @@ function home(){
 /*###CLIENTES###*/
 
 function addClient(){
-    Esconder()
+    Esconder();
     document.getElementById('Cliente').style.display = 'block';
 }
 
@@ -259,7 +259,7 @@ function cadClient(){
 /*###FUNCIONARIOS###*/
 
 function addFunc(){
-    Esconder()
+    Esconder();
     document.getElementById('Funcionario').style.display = 'block';
 
 
@@ -377,10 +377,12 @@ function stockBooks(){
             Livro.push("<div>"+
                             listaLivros[i].imprimeVenda() +
                             "</div>");
+            Livro.re
         }
         
-        document.getElementById("listBooks").innerHTML = Livro;
+        document.getElementById("listBooks").innerHTML = Livro.join(" ");
     }
+    
 
 }
 
